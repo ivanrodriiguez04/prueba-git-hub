@@ -6,10 +6,10 @@ pipeline {
 stages {
     stage('Sonarqube') {
     environment {
-        scannerHome = tool 'sonarqube'
+        scannerHome = tool 'sonarqubeserver'
     }
     steps {
-        withSonarQubeEnv('sonarqube') {
+        withSonarQubeEnv('sonarqubescanner') {
             sh "${scannerHome}/bin/sonar-scanner \
                  -Dsonar.projectKey=dvwa \
                  -Dsonar.projectName=DVWA \
