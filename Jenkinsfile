@@ -13,7 +13,8 @@ stages {
             sh "${scannerHome}/bin/sonar-scanner \
                  -Dsonar.projectKey=dvwa \
                  -Dsonar.projectName=DVWA \
-                 -Dsonar.login=$SONAR_AUTH_TOKEN"
+                 -Dsonar.login=$SONAR_AUTH_TOKEN
+                 -Dsonar.sources=/var/jenkins_home/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonarqubescanner/bin/sonar-scanner"
         }
         timeout(time: 10, unit: 'MINUTES') {
             waitForQualityGate abortPipeline: false
